@@ -5,10 +5,14 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
-    "clsx": "latest",
+    "clsx": "^1.1.1",
+    "jss-plugin-nested": "^10.4.0",
     "next": "latest",
     "next-auth": "^3.1.0",
+    "next-compose-plugins": "^2.2.0",
     "next-google-fonts": "^1.2.1",
+    "next-optimized-images": "^2.6.2",
+    "next-seo": "^4.7.3",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest"
