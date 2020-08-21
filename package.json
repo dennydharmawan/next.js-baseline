@@ -20,8 +20,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "vercel",
-    "update-deploy": "vercel --prod",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+    "deploy-app": "vercel",
+    "update-app": "vercel --prod"
   }
 }

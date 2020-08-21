@@ -28,6 +28,11 @@ export default function MyApp(props) {
           url: 'https://my-site.vercel.app/',
           site_name: 'My Site',
         }}
+        // twitter={{
+        //   handle: ‘@handle’,
+        //   site: ‘@site’,
+        //   cardType: ‘summary_large_image’,
+        // }}
       />
 
       <ThemeProvider theme={theme}>
