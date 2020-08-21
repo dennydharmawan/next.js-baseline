@@ -6,7 +6,7 @@ export default function index() {
   return (
     <Layout>
       <Typography variant="h1" color="initial">
-        <Container>test</Container>
+        <Container>Hello world</Container>
       </Typography>
     </Layout>
   );
