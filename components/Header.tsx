@@ -11,11 +11,11 @@ const useStyles = makeStyles({
   offset: theme.mixins.toolbar,
 });
 
-export default function Header() {
+const Header: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <>
+    <div>
       <AppBar className={classes.root}>
         <Toolbar>
           <Typography>This is our header</Typography>
@@ -23,6 +23,8 @@ export default function Header() {
         </Toolbar>
       </AppBar>
       <div className={classes.offset} />
-    </>
+    </div>
   );
-}
+};
+
+export default Header;

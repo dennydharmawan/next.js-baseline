@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import Header from './Header';
 import { Grid } from '@material-ui/core';
 
-export default function Layout({ children, pageTitle }) {
+const Layout: React.FC = ({ children }) => {
   return (
     <Grid container justify="center" alignItems="center">
       <Grid item xs={12}>
@@ -15,4 +14,6 @@ export default function Layout({ children, pageTitle }) {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default Layout;
