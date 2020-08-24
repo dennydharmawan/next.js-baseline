@@ -9,7 +9,6 @@
     "jss-plugin-nested": "^10.4.0",
     "next": "latest",
     "next-auth": "^3.1.0",
-    "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",
     "next-seo": "^4.7.3",
     "react": "latest",
