@@ -1,5 +1,6 @@
 import "../styles/global.css";
 
+import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import NextNprogress from "nextjs-progressbar";
 import { useEffect } from "react";
@@ -8,6 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 import theme from "../constants/theme";
+import SEO from "../next-seo.config";
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -20,6 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
