@@ -1,27 +1,9 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
+import { GetStaticPaths, GetStaticProps } from "next";
 
-export default function about() {
-  <NextSeo
-    title="About"
-    canonical={`${process.env.CANONICAL_URL}/about`}
-    openGraph={{
-      url: `${process.env.CANONICAL_URL}/about`,
-      title: 'About | My Site',
-    }}
-  />;
+import Layout from "../components/Layout";
 
-  return (
-    <div>
-      <NextSeo
-        title="About"
-        canonical={`${process.env.CANONICAL_URL}/about`}
-        openGraph={{
-          url: `${process.env.CANONICAL_URL}/about`,
-          title: 'About | My Site',
-        }}
-      />
-      About
-    </div>
-  );
-}
+const about = () => {
+  return <Layout>hello world</Layout>;
+};
+
+export default about;

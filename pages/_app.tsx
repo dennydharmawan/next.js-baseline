@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
-import { AppProps } from 'next/app';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { DefaultSeo } from 'next-seo';
+import "../styles/global.css";
 
-import theme from '../lib/theme';
+import { AppProps } from "next/app";
+import NextNprogress from "nextjs-progressbar";
+import { useEffect } from "react";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+import theme from "../constants/theme";
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -18,33 +20,16 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <DefaultSeo
-        titleTemplate={'%s | My Site'}
-        description="A cool website"
-        openGraph={{
-          type: 'website',
-          locale: 'en_IE',
-          url: 'https://my-site.vercel.app/',
-          site_name: 'My Site',
-        }}
-        // twitter={{
-        //   handle: ‘@handle’,
-        //   site: ‘@site’,
-        //   cardType: ‘summary_large_image’,
-        // }}
-      />
-
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
+        <NextNprogress
+          color="#fff"
+          options={{ minimum: 0.3, easing: 'ease', speed: 800 }}
+        />
       </ThemeProvider>
     </>
   );
-};
-
-App.propTypes = {
-  Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.object.isRequired,
 };
 
 export default App;
