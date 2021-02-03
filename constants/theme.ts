@@ -3,14 +3,12 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 // https://material-ui.com/customization/palette/
 declare module '@material-ui/core/styles/createPalette' {
   interface Palette {
-    darkBlue: React.CSSProperties['color'];
     spaceCadet: React.CSSProperties['color'];
     purpleNavy: React.CSSProperties['color'];
     cornflowerBlue: React.CSSProperties['color'];
     softWhite: React.CSSProperties['color'];
   }
   interface PaletteOptions {
-    darkBlue: React.CSSProperties['color'];
     spaceCadet: React.CSSProperties['color'];
     purpleNavy: React.CSSProperties['color'];
     cornflowerBlue: React.CSSProperties['color'];
@@ -29,8 +27,16 @@ declare module '@material-ui/core/styles/createPalette' {
 
 declare module '@material-ui/core/Typography/Typography' {
   interface TypographyPropsVariantOverrides {
-    bold: true;
-    medium: true;
+    dark: true;
+    grey: true;
+    lightGrey: true;
+  }
+}
+
+declare module '@material-ui/core/Button/Button' {
+  interface ButtonPropsColorOverrides {
+    accent: true;
+    grey: true;
     light: true;
   }
 }
@@ -41,7 +47,7 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: '#6458EE',
+      main: '#5850EC',
       contrastText: '#fff',
     },
     secondary: {
@@ -49,10 +55,9 @@ let theme = createMuiTheme({
       contrastText: '#fff',
     },
     accent: {
-      main: '#3476FC',
-      contrastText: '#fff',
+      main: '#00d4ff',
+      contrastText: '#0a2540',
     },
-    darkBlue: '#0A1625',
     spaceCadet: '#31395E',
     purpleNavy: '#54548C',
     cornflowerBlue: '#7899D4',
@@ -60,10 +65,35 @@ let theme = createMuiTheme({
     mode: 'light',
   },
   components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { color: 'accent' },
+          style: {
+            backgroundColor: '#00d4ff',
+            color: '#0a2540',
+          },
+        },
+        {
+          props: { color: 'light' },
+          style: {
+            backgroundColor: '#fff',
+            color: 'rgba(0, 0, 0, 0.87)',
+          },
+        },
+        {
+          props: { color: 'grey' },
+          style: {
+            backgroundColor: '#5e5d6b',
+            color: '#fff',
+          },
+        },
+      ],
+    },
     MuiTypography: {
       variants: [
         {
-          props: { variant: 'bold' },
+          props: { variant: 'dark' },
           style: {
             color: 'hsl(0, 0%, 13%)',
             fontWeight: 700,
@@ -71,41 +101,35 @@ let theme = createMuiTheme({
           },
         },
         {
-          props: { variant: 'medium' },
+          props: { variant: 'grey' },
           style: {
             color: 'hsl(0, 0%, 29%)',
-            fontWeight: 500,
+            fontWeight: 400,
             fontSize: '1.4rem',
           },
         },
         {
-          props: { variant: 'light' },
+          props: { variant: 'lightGrey' },
           style: {
             color: 'hsl(0, 0%, 54%)',
-            fontWeight: 500,
+            fontWeight: 400,
             fontSize: '1.4rem',
           },
         },
-        // {
-        //   props: { variant: 'light' },
-        //   style: {
-        //     color: 'hsl(212, 20%, 68%)',
-        //     fontWeight: 500,
-        //     fontSize: '1.4rem',
-        //   },
-        // },
-        // {
-        //   props: { variant: 'light' },
-        //   style: {
-        //     color: 'hsl(212, 20%, 13%)',
-        //     fontWeight: 500,
-        //     fontSize: '1.4rem',
-        //   },
-        // },
       ],
     },
   },
 });
+
+// theme.shadows[1] =
+//   '0 1px 3px hsla(0, 0%, 0.0000%, .12), 0 1px 2px hsla(0, 0%, 0.0000%, .24);';
+// theme.shadows[2] =
+//   '0 3px 6px hsla(0, 0%, 0.0000%, .15), 0 2px 4px hsla(0, 0%, 0.0000%, .12);';
+// theme.shadows[3] =
+//   '0 10px 20px hsla(0, 0%, 0.0000%, .15), 0 3px 6px hsla(0, 0%, 0.0000%, .10);';
+// theme.shadows[4] =
+//   '0 15px 25px hsla(0, 0%, 0.0000%, .15), 0 5px 10px hsla(0, 0%, 0.0000%, .5);';
+// theme.shadows[5] = '0 20px 40px hsla(0, 0%, 0.0000%, .2)';
 
 theme = responsiveFontSizes(theme);
 

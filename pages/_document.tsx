@@ -17,7 +17,6 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta

@@ -1,4 +1,10 @@
-import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  Container,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import theme from "../constants/theme";
