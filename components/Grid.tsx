@@ -1,21 +1,20 @@
 import { Box } from "@material-ui/core";
-import { alpha, experimentalStyled } from "@material-ui/core/styles";
+import { experimentalStyled } from "@material-ui/core/styles";
 
-const GridWrap = experimentalStyled(Box)(() => ({
-  padding: 'var(--grid-gap)',
+const GridWrap = experimentalStyled(Box)(({ theme }) => ({
+  padding: theme.grid.gridGap,
 }));
 
-const StyledGrid = experimentalStyled(Box)(() => ({
+const StyledGrid = experimentalStyled(Box)(({ theme }) => ({
   display: 'grid',
-  gridTemplateColumns: `repeat(auto-fit, minmax(var(--min-column-width), 1fr))`,
-  gridGap: 'var(--grid-gap)',
+  gridTemplateColumns: `repeat(auto-fit, minmax(${theme.grid.minColumnWidth}, 1fr))`,
+  gridGap: theme.grid.gridGap,
 
   '& + .grid': {
-    marginTop: 'var(--grid-gap)',
+    marginTop: theme.grid.gridGap,
   },
 }));
 
-// TODO: is there a better way to do this?
 const Grid: React.FC = ({ children }) => {
   return <StyledGrid className="grid">{children}</StyledGrid>;
 };

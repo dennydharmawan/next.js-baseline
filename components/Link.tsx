@@ -73,7 +73,7 @@ function Link(props: LinkProps) {
     return (
       <NextComposed
         className={className}
-        ref={innerRef as any} // TODO provide correct type
+        ref={innerRef as any}
         href={href}
         {...other}
       />

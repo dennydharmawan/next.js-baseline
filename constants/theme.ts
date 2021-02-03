@@ -41,7 +41,27 @@ declare module '@material-ui/core/Button/Button' {
   }
 }
 
+declare module '@material-ui/core/styles' {
+  interface Theme {
+    grid: {
+      gridGap: string;
+      minColumnWidth: string;
+    };
+  }
+  // allow configuration using `createMuiTheme`
+  interface ThemeOptions {
+    grid: {
+      gridGap: string;
+      minColumnWidth: string;
+    };
+  }
+}
+
 let theme = createMuiTheme({
+  grid: {
+    gridGap: '2rem',
+    minColumnWidth: '15rem',
+  },
   typography: {
     fontFamily: 'Inter, Arial, Helvetica, sans-serif',
   },
