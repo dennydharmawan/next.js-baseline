@@ -1,3 +1,5 @@
+import { NextSeo } from "next-seo";
+
 import { Container, Typography } from "@material-ui/core";
 
 import { FlexGrid, FlexGridWrap } from "../components/FlexGrid";
@@ -6,6 +8,10 @@ import Layout from "../components/Layout";
 export default function test() {
   return (
     <FlexGridWrap>
+      <NextSeo
+        title="Simple Usage Example"
+        description="A short description goes here."
+      />
       <FlexGrid>
         <span>One column default</span>
       </FlexGrid>

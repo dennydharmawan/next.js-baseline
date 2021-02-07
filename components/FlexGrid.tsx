@@ -1,25 +1,38 @@
-import { Box } from "@material-ui/core";
-import { experimentalStyled } from "@material-ui/core/styles";
+import clsx from "clsx";
+import { ElementType, ReactNode } from "react";
 
-const FlexGridWrap = experimentalStyled(Box)(({ theme }) => ({
+import { Box } from "@material-ui/core";
+import { experimentalStyled as styled } from "@material-ui/core/styles";
+
+const FlexGridWrap = styled(Box)(({ theme }) => ({
   padding: theme.grid.gridGap,
 }));
 
-const StyledFlexGrid = experimentalStyled(Box)(({ theme }) => ({
+type Props = {
+  children?: ReactNode;
+  className?: string;
+  component?: ElementType<any>;
+};
+
+const FlexGrid = styled((props: Props) => {
+  const { className, ...otherProps } = props;
+
+  return (
+    <Box className={clsx([props.className, 'flex-grid'])} {...otherProps} />
+  );
+})(({ theme }) => ({
   display: 'flex',
-  border: '1px solid red',
 
   '& > *': {
     flex: '0 1 100%',
 
-    '&:not(:first-child)': {
+    '&:not(:first-of-type)': {
       marginLeft: theme.grid.gridGap,
     },
   },
 
   [`@media (max-width: calc(${theme.grid.minColumnWidth} * 3))`]: {
     flexWrap: 'wrap',
-    backgroundColor: 'red',
 
     ' & > *': {
       margin: `${theme.grid.gridGap} 0 0 !important`,
@@ -27,16 +40,10 @@ const StyledFlexGrid = experimentalStyled(Box)(({ theme }) => ({
   },
 
   [`@media (min-width: calc(${theme.grid.minColumnWidth} * 3))`]: {
-    backgroundColor: 'red',
-
     '& + .flex-grid': {
       marginTop: theme.grid.gridGap,
     },
   },
 }));
-
-const FlexGrid: React.FC = ({ children }) => {
-  return <StyledFlexGrid className="flex-grid">{children}</StyledFlexGrid>;
-};
 
 export { FlexGridWrap, FlexGrid };
