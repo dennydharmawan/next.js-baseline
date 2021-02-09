@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import {
   AppBar,
   Button,
@@ -16,7 +18,11 @@ const useStyles = makeStyles({
   offset: theme.mixins.toolbar,
 });
 
-const Layout: React.FC = ({ children }) => {
+type Props = {
+  children: ReactNode;
+};
+
+const Layout = ({ children }: Props) => {
   const classes = useStyles();
 
   return (
